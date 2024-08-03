@@ -13,7 +13,6 @@ export default function Page() {
   const handleSubmit = async () => {
     try {
       const user = await createUser(email, username, password);
-      // console.log(user);
       if (user) router.push("/game");
     } catch (err) {
       console.log(err);

@@ -7,19 +7,17 @@ import {
   User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile
 } from "firebase/auth";
 
-import { db, storage } from "./clientApp";
+import { db } from "./clientApp";
 import { auth } from "./clientApp";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { getDownloadURL, ref } from "firebase/storage";
 
 export function onAuthStateChanged(cb: NextOrObserver<User>): () => void {
   return _onAuthStateChanged(auth, cb);
 }
 
-export async function createUser(email : string, password : string, userName : string): Promise<User | null> {
+export async function createUser(email : string,userName : string,password : string): Promise<User | null> {
   try{
       const userCred = await createUserWithEmailAndPassword(auth, email, password);
       if (auth.currentUser) {

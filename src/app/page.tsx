@@ -16,8 +16,11 @@ export default function Home() {
     const router = useRouter();
     return (
         <main className="bg-background h-screen w-full">
-            <section>
-                <h1 className={"text-3xl font-bold text-center"+inter.className}>Black Undercovers</h1>
+            <Button variant="outline" onClick={() => {
+                router.push("/login")
+            }}>Login</Button>
+            <section className="h-[90vh]">
+                <h1 className={"text-3xl font-bold text-center" + inter.className}>Black Undercovers</h1>
                 <div className="flex justify-center flex-wrap space-x-8">
                     <div className="w-max mb-6 rounded-full text-center">
                         <Image src="/civil.png" alt="civilian" width={100} height={100} className="rounded-full border-black border-2" />
@@ -32,13 +35,23 @@ export default function Home() {
                         <p className="text-lg font-semibold">Mr. Black</p>
                     </div>
                 </div>
-            </section>
-            <Button variant="outline" onClick={()=>{
-                router.push("/login")
-            }}>Login</Button>
-             <Button onClick={()=>{
+                <div className="card glass w-1/2">
+                    <figure>
+                        <img
+                            src="/black1.png"
+                            alt="" />
+                    </figure>
+                    <div className="card-body">
+                        <h2 className="card-title">Mr.Black</h2>
+                        <p></p>
+                    </div>
+                </div>
+                
+            <Button onClick={() => {
                 router.push("/game")
             }}>Start Playing</Button>
+            </section>
+            
         </main>
     )
 }
